@@ -1,0 +1,82 @@
+{%extends 'base.html'%}
+{%block title%}HOME{%endblock title%}
+{%block body%}
+<div class="container my-2">
+<div class="row">
+  <div class="col-sm-8">
+      <h3> Hello, {{request.user}}</h3><a href="{% url 'logout' %}">Logout</a><br>
+        <br><br><br>
+      <h5>Welcome back, thank you for logging in.</h5>
+
+
+  </div>
+    <div class="col">
+  <button class="btn btn-info btn-lg" type="button">Profile</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal">Message</button>
+        </div></div></div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+      </div>
+      <div class="modal-body">
+        <form action="reponse" method="POST">
+          <div class="mb-3">
+              <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+
+      <input type="text" class="form-control" id="message" name="message" placeholder="Enter your message">
+    </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container">
+    <h3>Latest News!!!</h3>
+
+    <marquee><div class="row">
+         {%for news in allnewss%}
+<!--    <div class="col-sm"><div class="container"><div class="row"><div class="card mb-3" style="max-width: 360px;">-->
+<!--      <img alt="Card image cap" class="card img-fluid" src="{{news.img1.url}}">-->
+<!--    </div>-->
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{news.title}}</h5>
+          <p class="card-text" ><pre style="white-space: pre-wrap; word-break: keep-all;font-family:verdana;">{{news.content}}</pre></p>
+
+      </div>
+    </div></div></div></div>
+         {%endfor%}
+	</div></marquee>
+
+	</div>
+<br>
+   <ol class="breadcrumb">
+     <li class="breadcrumb-item active" aria-current="page"><h5>Categories</h5></li>
+  </ol>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/disease">Skin</a></li>
+        <li class="breadcrumb-item"><a href="#">Heart</a></li>
+            <li class="breadcrumb-item"><a href="/home1">Brain</a></li>
+    <li class="breadcrumb-item"><a href="#">Viral</a></li>
+    <li class="breadcrumb-item"><a href="#">Infectious</a></li>
+    <li class="breadcrumb-item"><a href="#">Genetic</a></li>
+
+  </ol>
+
+
+
+
+{%endblock body%}

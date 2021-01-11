@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%}Search results{%endblock title%}
+
+{%block body%}
+<div class="container my-4">
+<h3>Search Results....</h3>
+    <article class="blog-post">
+    {% for Info in allInfos %}
+        <div class="row">
+            <div class="col-sm-6">
+                <h1 class="blog-post-title">{{Info.name}}</h1></div>
+            <div class="col-sm"><img src="{{Info.img.url}}" height="300" width="400"></div></div>
+<hr>
+        <p><h3><u>Overview</u></h3></p>
+
+        <pre style="white-space: pre-wrap; word-break: keep-all;font-family:verdana;">{{Info.overview}}</pre>
+        <p><h3><u>Symptoms</u></h3></p>
+        <pre style="white-space: pre-wrap; word-break: keep-all;font-family:verdana;">{{Info.symptoms}}</pre>
+        <p><h3><u>Risks</u></h3></p>
+        <pre style="white-space: pre-wrap; word-break: keep-all;font-family:verdana;">{{Info.risk}}</pre>
+        <p><h3><u>Causes</u></h3></p>
+        <pre style="white-space: pre-wrap; word-break: keep-all;font-family:verdana;">{{Info.causes}}</pre>
+        <p><h3><u>Preventions</u></h3></p>
+        <pre style="white-space: pre-wrap; word-break: keep-all;font-family:verdana;">{{Info.prev}}</pre>
+
+
+      </article>
+
+{% endfor %}
+</div>
+{%endblock body%}
